@@ -1,5 +1,8 @@
 package utils;
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,9 +24,12 @@ import org.apache.commons.io.FileUtils;
 
 import static utils.PageInitializer.initializePageObject;
 
-public class CommonMethods {
-WebDriver driver;
-    public void openBrowserAndLaunchApplication(){
+public class CommonMethods extends PageInitializer {
+    public static RequestSpecification request;
+    public static Response response;
+    
+    public static WebDriver driver;
+    public  void openBrowserAndLaunchApplication(){
         switch (ConfigReader.read("browser")){
             case "Chrome":
                 driver=new ChromeDriver();
@@ -41,7 +47,7 @@ WebDriver driver;
                 System.out.println("Invalid browser name");
         }
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.get(ConfigReader.read("url"));
         initializePageObject();
     }
@@ -111,5 +117,6 @@ WebDriver driver;
         }
         return picByte;
     }
+
 
 }
