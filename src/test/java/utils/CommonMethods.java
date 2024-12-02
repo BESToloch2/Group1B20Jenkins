@@ -96,7 +96,7 @@ public class CommonMethods extends PageInitializer {
     }
 
     public void jsClick(WebElement element){
-        getJSExecuter().executeScript("aruments[0].click();",element);
+        getJSExecuter().executeScript("arguments[0].click();",element);
     }
 
     public String getTimeStamp(String pattern){
