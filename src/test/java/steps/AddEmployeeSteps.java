@@ -9,7 +9,8 @@ import utils.CommonMethods;
 
 public class AddEmployeeSteps extends CommonMethods {
     @When("user enters firstname and lastname")
-    public void user_enters_firstname_and_lastname() {
+    public void user_enters_firstname_and_lastname() throws InterruptedException {
+        Thread.sleep(3000);
         sendText("John", addEmployeePage.firstnameLocator);
         sendText("Doe", addEmployeePage.lastnameLocator);
     }
@@ -28,9 +29,11 @@ public class AddEmployeeSteps extends CommonMethods {
         addEmployeePage.employeeId.clear();
     }
     @When("user enters id")
-    public void user_enters_id() {
-        sendText("7483274382493839", addEmployeePage.employeeId);
+    public void user_enters_id() throws InterruptedException {
+        sendText("748327493839", addEmployeePage.employeeId);
+    Thread.sleep(3000);
     }
+
     @When("user enters firstname")
     public void user_enters_firstname() {
         sendText("John", addEmployeePage.firstnameLocator);

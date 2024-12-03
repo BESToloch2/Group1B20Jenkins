@@ -84,4 +84,18 @@ public class SearchEmployeeSteps extends CommonMethods {
         }
     }
 
+    @When("user enters invalid id")
+    public void userEntersInvalidId() {
+        WebElement idField= driver.findElement(By.id("empsearch_id"));
+        sendText("2",idField);
+    }
+
+    @Then("{string} is displayed")
+    public void isDisplayed(String expectedMsg) throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement message= driver.findElement(By.xpath("/html/body/div[1]/div[3]/div[2]/div/form/div[4]/table/tbody/tr/td"));
+        String actualMsg=message.getText();
+        expectedMsg= "No Records Found";
+        Assert.assertEquals(expectedMsg,actualMsg);
+    }
 }

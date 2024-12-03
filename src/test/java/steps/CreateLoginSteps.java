@@ -26,7 +26,7 @@ public class CreateLoginSteps extends CommonMethods {
     @When("user enters username")
     public void user_enters_username() {
         WebElement usernameField = driver.findElement(By.name("user_name"));
-        sendText("johndoe12534", usernameField);
+        sendText("johndoe54321", usernameField);
 
     }
     @When("user enters password")
@@ -50,11 +50,9 @@ public class CreateLoginSteps extends CommonMethods {
         String personalDetails= createdSuccessfully.getText();
         Assert.assertEquals(personalDetails,"Personal Details");
     }
-
-
     @When("user enters username and password")
     public void userEntersUsernameAndPassword() {
-        sendText("johndoe12534", loginPage.userNameField);
+        sendText("johndoe54321", loginPage.userNameField);
         sendText("Hum@nhrm123", loginPage.passwordField);
     }
 }
