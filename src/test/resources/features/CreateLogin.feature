@@ -18,7 +18,7 @@ Feature: Create Login for New Employee
     And user clicks save button
     Then employee created successfully
 
-  @loginAttempt
+  @create
   Scenario: login using new login details
     When user enters username and password
     And click on login button
