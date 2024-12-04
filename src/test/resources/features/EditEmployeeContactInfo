@@ -1,0 +1,22 @@
+Feature: Edit Employee Contact Information
+  As an employee, I want to update my contact information so that it remains current and accurate.
+
+  Background:
+    Given user logs in with username "Admin" and password "Hum@nhrm123"
+    And user navigates to My Info tab
+
+
+  Scenario: Update contact information with valid details
+    When user updates contact information with:
+      | Field       | Value             |
+      | Address     | 123 Main St       |
+      | City        | New York          |
+      | State       | NY                |
+      | Zip Code    | 10001             |
+      | Country     | United States     |
+      | Home Phone  | 123456789         |
+      | Mobile Phone| 987654321         |
+      | Work Phone  | 654321789         |
+      | Work Email  | work@example.com  |
+      | Other Email | other@example.com |
+    Then the contact information should be updated successfully
