@@ -25,9 +25,6 @@ import org.apache.commons.io.FileUtils;
 import static utils.PageInitializer.initializePageObject;
 
 public class CommonMethods extends PageInitializer {
-    public static RequestSpecification request;
-    public static Response response;
-    
     public static WebDriver driver;
     public  void openBrowserAndLaunchApplication(){
         switch (ConfigReader.read("browser")){
