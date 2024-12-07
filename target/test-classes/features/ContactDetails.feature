@@ -22,4 +22,4 @@ Feature: Updated Contact Details
     Then the contact information should be updated successfully
     Examples:
       |addressStreet1|addressStreet2|city    |state      |zipCode|country      |homePhone   |mobilePhone |workPhone   |workEmail     |otherEmail  |
-      |222 Clematis|Apt 239       |Miami|Florida   |33101  |United States|123-444-3333|111-222-3333|555-5555-5555|zizi@gmail.com|zizi@1
+      |222 Clematis|Apt 239       |Miami|Florida   |33101  |United States|123-444-3333|111-222-3333|555-5555-5555|zizi@gmail.com|zizi@1           |
