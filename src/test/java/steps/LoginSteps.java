@@ -14,10 +14,10 @@ import static utils.PageInitializer.loginPage;
 
 public class LoginSteps extends CommonMethods {
 
-    @Given("user is able to access to hrms app")
+   /* @Given("user is able to access to hrms app")
     public void user_is_able_to_access_to_hrms_app() {
         openBrowserAndLaunchApplication();
-    }
+    }*/
     @When("user enter valid credentials")
     public void user_enter_valid_credentials() {
     sendText(ConfigReader.read("userName"), loginPage.userNameField);
