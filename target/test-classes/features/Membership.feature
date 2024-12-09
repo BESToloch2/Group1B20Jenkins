@@ -4,7 +4,7 @@ Feature: Manage Membership Details
   So that my profile accurately reflects my professional memberships and subscriptions.
 
   Scenario: Add new membership details
-    Given the user is logged into the HRMS system
+   // Given the user is logged into the HRMS system
     When user clicks on the membership button
     And user clicks on Add option button
     And user selects an option from the dropdown menu

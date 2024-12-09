@@ -1,7 +1,7 @@
 Feature: Create Login for New Employee
 
   Background:
-    Given user is able to access to hrms app
+    //Given user is able to access to hrms app
 
   @create @gui
   Scenario: create login details

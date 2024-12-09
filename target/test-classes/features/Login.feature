@@ -1,5 +1,5 @@
 Feature: Login scenarios
-  @login
+  @login @gui
   Scenario: admin login
     //Given user is able to access to hrms app
     When user enter valid credentials

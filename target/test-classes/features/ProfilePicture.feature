@@ -4,10 +4,10 @@ Feature: Profile Picture Upload for ESS Users
   So that I can personalize my HRMS profile.
 
   Background:
-    Given I am logged into the HRMS application as an ESS user
+    //Given I am logged into the HRMS application as an ESS user
     And I navigate to the profile picture upload page
     And I click on the profile picture to initiate the upload process
-
+  @gui
   Scenario Outline: Successfully uploading a profile picture
     When I select a profile picture "<Filename>" with a size of <Filesize> bytes
     And I click the "Upload" button
@@ -19,7 +19,7 @@ Feature: Profile Picture Upload for ESS Users
       | profile.jpg    | 500000   | Successfully uploaded.       |
       | profile.png    | 800000   | Successfully uploaded.       |
       | profile.gif    | 900000   | Successfully uploaded.       |
-
+  @gui
   Scenario Outline: Handling errors during profile picture upload
     When I select a profile picture "<Filename>" with a size of <Filesize> bytes
     And I click the "Upload" button

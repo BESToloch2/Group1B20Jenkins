@@ -7,25 +7,25 @@ Feature: Search for Employee
     Then user navigate to dashboard page
     When user clicks on PIM option
 
-  @search @fullName
+  @search @fullName @gui
   Scenario: search with full name
     When user enters full name
     And clicks search button
     Then all matching employees should be returned
 
-  @search @partialName
+  @search @partialName @gui
   Scenario: search with partial name
     When user enters partial name
     And clicks search button
     Then all matching employees should be returned partial
 
-  @search @id
+  @search @id @gui
   Scenario: search with id
     When user enters valid id
     And clicks search button
     Then all matching employees should be returned id
 
-  @search @inaccurate
+  @search @inaccurate @gui
   Scenario: search with inaccurate info
     When user enters invalid id
     And clicks search button

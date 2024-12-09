@@ -4,7 +4,7 @@ Feature: Profile Picture Upload for ESS Users
   So that I can personalize my HRMS profile.
 
   Background:
-    Given I am logged into the HRMS application as an ESS user
+    //Given I am logged into the HRMS application as an ESS user
     And I navigate to the profile picture upload page
     And I click on the profile picture to initiate the upload process
   @gui
