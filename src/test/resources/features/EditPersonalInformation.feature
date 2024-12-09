@@ -4,9 +4,9 @@ Feature: Edit Personal Information in HRMS
   So that I can keep my details accurate and up-to-date.
 
   Background:
-    Given I am on the HRMS login page at "http://hrmstest.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login"
-    And I have logged in using valid ESS credentials
-
+    //Given I am on the HRMS login page at "http://hrmstest.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login"
+    //And I have logged in using valid ESS credentials
+  @gui
   Scenario: Edit personal information successfully
     Given I am on the "Personal Information" page
     When I update the following fields:
@@ -21,7 +21,7 @@ Feature: Edit Personal Information in HRMS
     Then the system should save the changes successfully
     And I should see a confirmation message "Your details have been updated successfully"
     And the changes should be reflected on the "Personal Information" page
-
+  @gui
   Scenario: Verify changes are saved in the database
     Given I have successfully updated my personal information
     When I query the database for the employee record with ID "ESS12345" (example ID)
@@ -33,7 +33,7 @@ Feature: Edit Personal Information in HRMS
       | Gender         | Male             |
       | Nationality    | American         |
       | Marital Status | Married          |
-
+  @gui
   Scenario: Attempt to submit invalid or incomplete information
     Given I am on the "Personal Information" page
     When I leave the "First Name" field empty
