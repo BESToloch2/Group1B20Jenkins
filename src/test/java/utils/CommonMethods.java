@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -29,7 +30,9 @@ public class CommonMethods extends PageInitializer {
     public  void openBrowserAndLaunchApplication(){
         switch (ConfigReader.read("browser")){
             case "Chrome":
-                driver=new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless"); // Enable headless mode
+                driver = new ChromeDriver(options);
                 break;
             case "FireFox":
                 driver=new FirefoxDriver();
@@ -96,23 +99,25 @@ public class CommonMethods extends PageInitializer {
         getJSExecuter().executeScript("arguments[0].click();",element);
     }
 
-    public String getTimeStamp(String pattern){
+    public static String getTimeStamp(String pattern){
         Date date=new Date();
         SimpleDateFormat sdf=new SimpleDateFormat(pattern);
         return sdf.format(date);
     }
 
-    public byte[] takeScreenshot(String fileName){
-        TakesScreenshot ts=(TakesScreenshot) driver;
-        byte[] picByte=ts.getScreenshotAs(OutputType.BYTES);
-        File sourceFile=ts.getScreenshotAs(OutputType.FILE);
+    public static byte[] takeScreenshot(String filename) {
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        byte[] screenshotBytes = ts.getScreenshotAs(OutputType.BYTES);
+        File screenshotFile = ts.getScreenshotAs(OutputType.FILE);
 
-        try{
-            FileUtils.copyFile(sourceFile, new File(Constants.SCREENSHOT_FILEPATH+ fileName+" "+getTimeStamp("yyyy-MM-dd HH:mm:ss")+".png"));
-        }catch (IOException ioException){
-            ioException.printStackTrace();
+        try {
+            String filePath = Constants.SCREENSHOT_FILEPATH + filename + " " + getTimeStamp("yyyy-MM-dd-HH-mm-ss") + ".png";
+            FileUtils.copyFile(screenshotFile, new File(filePath));
+        } catch (IOException e) {
+            System.err.println("Error saving screenshot: " + e.getMessage());
         }
-        return picByte;
+
+        return screenshotBytes;
     }
 
 

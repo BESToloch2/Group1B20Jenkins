@@ -13,7 +13,7 @@ Feature: Updated Contact Details
     And user clicks on search button
     Then user is able to see searched employee on screen
 
-  @add
+  @add @gui
   Scenario Outline: Edit contact information successfully
     When user clicks on id field
     Then user clicks the Contact Details section
